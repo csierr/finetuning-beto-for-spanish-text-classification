@@ -7,4 +7,5 @@ This project serves as a simple yet effective starting point for learning how to
 I hope you find it helpful or interesting. Feel free to clone and adapt it to your own projects!
 
 🔗 [Dataset](https://huggingface.co/datasets/tonicanada/learn_hf_spanish_sentence_classification_by_school_subject)
+
 🔗 [BETO Model](https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased)
