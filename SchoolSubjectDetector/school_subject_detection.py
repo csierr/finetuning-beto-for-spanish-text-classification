@@ -17,7 +17,6 @@ model.to(device)
 model.load_state_dict(torch.load('best_finetuned_BETO.model', map_location=device), strict=False)
 model.eval()
 
-# Reverse to obtain the school subjects names instead of the numerical label
 id2label = {v: k for k, v in label_dict.items()}
 
 def ss_detector(text_to_analyse):
