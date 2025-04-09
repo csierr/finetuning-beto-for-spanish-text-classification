@@ -33,11 +33,15 @@ A very simple frontend is included, built using basic HTML and JavaScript. While
 A `requirements.txt` file is provided to help you set up a virtual environment and install all necessary dependencies to run the project locally.
 
 To get started:
+
 ```bash python3 -m venv venv```
+
 ```bash source venv/bin/activate```
+
 ```bash pip install -r requirements.txt```
 
 Then you can launch the app with:
+
 ```bash flask --app app run```
 
 # 🖼️ Preview
