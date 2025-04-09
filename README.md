@@ -44,4 +44,4 @@ Then you can launch the app with:
 
 Here’s a preview of the app in action:
 
-![School_Subject_Detection](.\app_nlp_school_subject_detection.png)
+![School_Subject_Detection](app_nlp_school_subject_detection.png)
