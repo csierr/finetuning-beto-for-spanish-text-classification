@@ -34,7 +34,9 @@ A `requirements.txt` file is provided to help you set up a virtual environment a
 
 To get started:
 
-<pre>```bash python3 -m venv venv```</pre>
+<pre>```bash
+python3 -m venv venv
+```</pre>
 
 ```bashsource venv/bin/activate```
 
