@@ -34,7 +34,7 @@ A `requirements.txt` file is provided to help you set up a virtual environment a
 
 To get started:
 
-```console
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -42,7 +42,9 @@ pip install -r requirements.txt
 
 Then you can launch the app with:
 
-```bash flask --app app run```
+```bash
+flask --app app run
+```
 
 # 🖼️ Preview
 
