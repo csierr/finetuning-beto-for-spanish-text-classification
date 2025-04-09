@@ -1,4 +1,4 @@
-# 🚀 Finetuning BETO for Spanish text classification 🇪🇸
+# 🚀 Finetuning BETO for Spanish text classification
 
 This project demonstrates the process of fine-tuning the BETO model (a BERT-based model for Spanish) for text classification tasks. The notebook covers the training and validation steps, with a focus on obtaining the best model based on validation loss. Once the model is fine-tuned, the goal is to integrate it into a local Flask application for a more complete development cycle.
 
