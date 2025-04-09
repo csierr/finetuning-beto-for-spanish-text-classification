@@ -1,2 +1,3 @@
 best_finetuned_BETO.model
 .venv
+__pycache__
