@@ -34,13 +34,11 @@ A `requirements.txt` file is provided to help you set up a virtual environment a
 
 To get started:
 
-<pre>```bash
+```console
 python3 -m venv venv
-```</pre>
-
-```bashsource venv/bin/activate```
-
-```bash pip install -r requirements.txt```
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 Then you can launch the app with:
 
