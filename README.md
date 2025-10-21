@@ -2,7 +2,7 @@
 
 This project demonstrates the process of fine-tuning the BETO model (a BERT-based model for Spanish) for text classification tasks. The notebook covers the training and validation steps, with a focus on obtaining the best model based on validation loss. Once the model is fine-tuned, the goal is to integrate it into a local Flask application for a more complete development cycle.
 
-This project serves as a simple yet effective starting point for learning how to work with transformer models.
+This project serves as a starting point for learning how to work with transformer models.
 
 I hope you find it helpful or interesting. Feel free to clone and adapt it to your own projects!
 
@@ -26,7 +26,7 @@ The Flask application is launched using `app.py`, which defines the main endpoin
 
 # 🖥️ Frontend
 
-A very simple frontend is included, built using basic HTML and JavaScript. While frontend development is not my primary focus (I'm much more comfortable on the backend!), this basic UI allows users to input a sentence and view the predicted school subject instantly.
+A simple frontend is included, built using basic HTML and JavaScript, allowing users to input a sentence and view the predicted school subject instantly.
 
 # 📦 Requirements
 
