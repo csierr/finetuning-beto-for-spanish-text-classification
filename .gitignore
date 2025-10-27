@@ -1,3 +1,5 @@
 best_finetuned_BETO.model
 .venv
+venv/
 __pycache__
+finetuned_BETO_epoch_*.model
