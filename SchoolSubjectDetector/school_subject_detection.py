@@ -1,27 +1,41 @@
-import requests, json
 import torch
 import numpy as np
 from transformers import BertTokenizer, BertForSequenceClassification
 
-label_dict = {'Matemáticas': 0, 'Física y química': 1, 'Geografía': 2, 'Historia': 3, 'Idiomas extranjeros': 4, 'Artes': 5,
-              'Educación física': 6, 'Lengua y literatura': 7, 'Frase no relacionada con asignaturas': 8, 'Religión': 9}
+label_dict = {
+    'Matemáticas': 0, 
+    'Física y química': 1, 
+    'Geografía': 2, 
+    'Historia': 3, 
+    'Idiomas extranjeros': 4, 
+    'Artes': 5,
+    'Educación física': 6, 
+    'Lengua y literatura': 7, 
+    'Frase no relacionada con asignaturas': 8, 
+    'Religión': 9}
 
-device = device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
+device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
 
 tokenizer = BertTokenizer.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased")
-model = BertForSequenceClassification.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased",
+model     = BertForSequenceClassification.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased",
                                                       num_labels=len(label_dict),
                                                       output_attentions=False,
                                                       output_hidden_states=False)
 model.to(device)
-model.load_state_dict(torch.load('best_finetuned_BETO.model', map_location=device), strict=False)
+model.load_state_dict(torch.load('../notebook_and_models/best_finetuned_BETO.model', map_location=device), strict=True)
 model.eval()
 
 id2label = {v: k for k, v in label_dict.items()}
 
-def ss_detector(text_to_analyse):
+def ss_detector(text_to_analyze):
+    """
+    Function to detect school subject from input text, using the fine-tuned BETO model.
+
+    Args:
+        text_to_analyze (str): Input text in Spanish.
+    """
     encoded_input = tokenizer.encode_plus(
-        text_to_analyse,
+        text_to_analyze,
         add_special_tokens=True,
         return_tensors='pt',
         max_length=128,
