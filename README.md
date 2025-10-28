@@ -21,7 +21,7 @@ The application structure includes the following:
 - `app.py` — Flask backend exposing the `/subjectDetector` API used by the frontend.
 - `src/` — React + Vite frontend.
 - `public/` — static assets used by the frontend (place favicons and images here).
-- `notebook_and_models` — Folder that contains the notebook used to fine-tune the model, and where the models are saved.
+- `notebook_and_models` — Folder that contains the notebook used to fine-tune the model, and where the models are saved. There's a `_clean`version of the notebook, this is because the original one had some rendering issues on github, the cleaned one is the same but without them so it can be properly displayed/visualized on github.
 
 **Note**: During training, only the model weights (`state_dict`) are saved using `torch.save(model.state_dict(), 'best_finetuned_BETO.model')`. Later, these weights are reloaded into the same BETO architecture with:
 
