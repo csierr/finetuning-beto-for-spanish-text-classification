@@ -21,9 +21,14 @@ The application structure includes the following:
 - `app.py` — Flask backend exposing the `/subjectDetector` API used by the frontend.
 - `src/` — React + Vite frontend.
 - `public/` — static assets used by the frontend (place favicons and images here).
-- `Fine_Tuning_BETO_for_Spanish_School_Subject_Classification.ipynb` — notebook used to fine-tune the model.
+- `notebook_and_models` — Folder that contains the notebook used to fine-tune the model, and where the models are saved.
 
-The model files are not available here as they're heavy, but after running the jupyter notebook you should have `best_finetuned_BETO.model` locally saved.
+**Note**: During training, only the model weights (`state_dict`) are saved using `torch.save(model.state_dict(), 'best_finetuned_BETO.model')`. Later, these weights are reloaded into the same BETO architecture with:
+
+```python
+model = BertForSequenceClassification.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased", num_labels=10)
+model.load_state_dict(torch.load('best_finetuned_BETO.model'))
+```
 
 ## Quickstart
 
@@ -65,15 +70,28 @@ Response (JSON):
 
 ```json
 {
-	"predicted_class": "Matemáticas",
-	"class_probabilities": { "Matemáticas": 0.86, "Historia": 0.03, ... }
+  "predicted_class": "Matemáticas",
+  "class_probabilities": {
+    "Matemáticas": 0.86,
+    "Historia": 0.03,
+    "Lengua y literatura": 0.02,
+    ...
+  }
 }
 ```
 
 The frontend currently reads `predicted_class` and displays it in the UI. The UI can be extended to show the probabilities as preferred.
 
+
+## Model Performance and Limitations
+
+The dataset used for fine-tuning, [Learn HF Spanish Sentence Classification by School Subject](https://huggingface.co/datasets/tonicanada/learn_hf_spanish_sentence_classification_by_school_subject), is relatively small and unbalanced across categories. As a result, the fine-tuned BETO model may show limited generalization capability and occasional misclassifications, especially for less represented subjects.
+
+This project's goal is not to achieve state-of-the-art accuracy, but rather to demonstrate the complete fine-tuning and deployment workflow of a transformers model, from data preprocessing to a working web app. Future improvements could include fine-tuning with a larger and more balanced dataset.
+
+
 ## Preview
 
-Here’s a preview of the app in action:
+Here's a preview of the app in action:
 
 ![School_Subject_Detection](app_nlp_school_subject_detection_new.png)
